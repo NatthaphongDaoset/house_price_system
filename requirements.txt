@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 numpy>=2.0,<2.4
 pandas>=2.2
 scipy>=1.14
@@ -23,15 +22,3 @@ httpx>=0.24.0
 # --- Testing & Code Quality (CI/CD Pipeline) ---
 pytest>=8.0
 ruff>=0.8
-=======
-pandas>=2.2,<3
-numpy>=1.26,<3
-scikit-learn>=1.5,<2
-joblib>=1.4,<2
-PyYAML>=6.0,<7
-fastapi>=0.115,<1
-uvicorn[standard]>=0.30,<1
-pydantic>=2.8,<3
-pytest>=8,<9
-ruff>=0.8,<1
->>>>>>> 2d7041b92d359689a9d38e069818b74ac49edc4e
