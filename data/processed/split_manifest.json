@@ -1,0 +1,152 @@
+{
+  "schema_version": 2,
+  "created_at_utc": "2026-10-03T19:07:56.773156+00:00",
+  "source": {
+    "path": "data\\raw\\kc_house_data.csv",
+    "sha256": "a1b3b60366ca69e37d74e91cc066f70e5514cd247bdf6c9a2c0440874fda809f",
+    "rows": 21613
+  },
+  "feature_contract": {
+    "target": "price",
+    "identifier_columns": [
+      "id"
+    ],
+    "excluded_model_features": [
+      "id"
+    ],
+    "categorical_features": [
+      "zipcode"
+    ],
+    "datetime_columns": [
+      "date"
+    ]
+  },
+  "cleaning": {
+    "input_rows": 21613,
+    "rule_counts_before_overlap_removal": {
+      "zero_bedrooms": 13,
+      "zero_bathrooms": 10,
+      "bedrooms_above_20_and_below_100_sqft_each": 1,
+      "built_after_sale": 12,
+      "renovated_after_sale": 6
+    },
+    "rejected_rows": 35,
+    "output_rows": 21578,
+    "imputation_applied": false,
+    "policy": "Rejected rows are saved for audit. Large price and area values are retained. Model-side imputation must be fitted on train only."
+  },
+  "rejected_records": {
+    "path": "data\\rejected\\rejected_rows.csv",
+    "rows": 35,
+    "sha256": "4244f0b9c01b4c2df8e88b8ca17dede957ff39b09c2a695588fb641798240991"
+  },
+  "split_strategy": {
+    "name": "group_aware_temporal_by_property_latest_sale",
+    "description": "All transactions for one property ID stay together. The latest sale date of that property decides its partition.",
+    "requested_fractions": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15000000000000005
+    },
+    "cutoffs": {
+      "property_latest_sale_train_end": "2015-01-21",
+      "property_latest_sale_validation_end": "2015-03-26"
+    }
+  },
+  "splits": {
+    "train": {
+      "path": "data\\processed\\train.csv",
+      "rows": 15108,
+      "actual_fraction": 0.700158,
+      "transaction_date_range": {
+        "min": "2014-05-02",
+        "max": "2015-01-21"
+      },
+      "unique_property_ids": 15062,
+      "sha256": "c6c27f2a47b4c9f04a9bd2fc43a025a0d479cdfa11f44bd78b2b6d6b4120a2aa"
+    },
+    "validation": {
+      "path": "data\\processed\\validation.csv",
+      "rows": 3245,
+      "actual_fraction": 0.150385,
+      "transaction_date_range": {
+        "min": "2014-05-05",
+        "max": "2015-03-26"
+      },
+      "unique_property_ids": 3175,
+      "sha256": "3f8ede3f0a3bb76bdcb9cac3996fd2669eca9c0abb2dd4e3b71e385115502374"
+    },
+    "test": {
+      "path": "data\\processed\\test.csv",
+      "rows": 3225,
+      "actual_fraction": 0.149458,
+      "transaction_date_range": {
+        "min": "2014-05-23",
+        "max": "2015-05-27"
+      },
+      "unique_property_ids": 3164,
+      "sha256": "cb6fb9b378d301651979305de0ffa87ea2b8070f28f56cf3536bd95085a3d8f6"
+    }
+  },
+  "cross_split_property_ids": {
+    "train_validation": 0,
+    "train_test": 0,
+    "validation_test": 0
+  },
+  "repeated_sales": {
+    "properties_with_multiple_sales": 176,
+    "rows_from_properties_with_multiple_sales": 353,
+    "maximum_sales_for_one_property": 3
+  },
+  "validation": {
+    "status": "passed",
+    "warnings": [
+      {
+        "check": "repeated_property_id",
+        "count": 353,
+        "sample_rows": [
+          93,
+          94,
+          313,
+          314,
+          324
+        ]
+      },
+      {
+        "check": "bedrooms_above_10",
+        "count": 2,
+        "sample_rows": [
+          8757,
+          15870
+        ]
+      },
+      {
+        "check": "zero_bedrooms",
+        "count": 13,
+        "sample_rows": [
+          875,
+          3119,
+          3467,
+          4868,
+          6994
+        ]
+      },
+      {
+        "check": "zero_bathrooms",
+        "count": 10,
+        "sample_rows": [
+          875,
+          1149,
+          3119,
+          5832,
+          6994
+        ]
+      }
+    ]
+  },
+  "limitations": [
+    "Sales cover May 2014 to May 2015 in King County only.",
+    "The data may not represent current house prices or other regions.",
+    "Earlier sales of a repeated property follow its latest sale into the same split."
+  ]
+}
