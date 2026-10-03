@@ -1,0 +1,13 @@
+data:
+  raw_path: data/raw/house_prices.csv
+  processed_path: data/processed/house_prices_processed.csv
+  target: SalePrice
+
+model:
+  path: artifacts/serving_model/house_price_model.joblib
+  test_size: 0.2
+  random_state: 42
+
+api:
+  host: 0.0.0.0
+  port: 8000
