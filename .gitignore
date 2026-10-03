@@ -64,6 +64,7 @@ data/processed/*.csv
 data/drift/*.csv
 data/corrupted/*.csv
 !data/raw/.gitkeep
+!data/raw/kc_house_data.csv
 !data/processed/.gitkeep
 !data/corrupted/.gitkeep
 !data/drift/.gitkeep
