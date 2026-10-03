@@ -1,0 +1,38 @@
+{
+  "rows": 21613,
+  "columns": 21,
+  "missing_cells": 0,
+  "duplicate_rows": 0,
+  "duplicate_id_date": 0,
+  "date_range": {
+    "min": "2014-05-02",
+    "max": "2015-05-27",
+    "invalid": 0
+  },
+  "target_price": {
+    "min": 75000.0,
+    "median": 450000.0,
+    "mean": 540088.1417665294,
+    "max": 7700000.0
+  },
+  "approved_cleaning": {
+    "rule_counts_before_overlap_removal": {
+      "zero_bedrooms": 13,
+      "zero_bathrooms": 10,
+      "bedrooms_above_20_and_below_100_sqft_each": 1,
+      "built_after_sale": 12,
+      "renovated_after_sale": 6
+    },
+    "unique_rows_rejected": 35,
+    "rows_after_cleaning": 21578,
+    "status": "approved_and_applied_by_ingestion"
+  },
+  "other_observations": {
+    "bedrooms_above_10": 2,
+    "bedrooms_equal_11": 1,
+    "repeated_property_id_rows": 353,
+    "nonpositive_price": 0,
+    "nonpositive_living_area": 0,
+    "living_area_component_mismatch": 0
+  }
+}

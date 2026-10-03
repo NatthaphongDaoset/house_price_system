@@ -1,0 +1,207 @@
+{
+  "dataset_manifest": "data\\processed\\split_manifest.json",
+  "split_rows": {
+    "train": 15108,
+    "validation": 3245,
+    "test": 3225
+  },
+  "validation_results": {
+    "dummy_median": {
+      "metrics": {
+        "mae": 220095.24437596303,
+        "rmse": 355561.09983297717,
+        "r2": -0.045029973635713816,
+        "mape_percent": 45.48685906644734,
+        "within_10_percent": 0.1519260400616333,
+        "within_20_percent": 0.2893682588597843
+      },
+      "training_seconds": 0.001
+    },
+    "ridge_log_alpha_0_1": {
+      "metrics": {
+        "mae": 70741.97191079368,
+        "rmse": 123151.04940469425,
+        "r2": 0.8746349439547537,
+        "mape_percent": 14.160763176105046,
+        "within_10_percent": 0.5186440677966102,
+        "within_20_percent": 0.7796610169491526
+      },
+      "training_seconds": 0.488
+    },
+    "ridge_log_alpha_10": {
+      "metrics": {
+        "mae": 71795.70811490141,
+        "rmse": 124718.50967910557,
+        "r2": 0.8714233546537755,
+        "mape_percent": 14.289513153270084,
+        "within_10_percent": 0.514637904468413,
+        "within_20_percent": 0.7784283513097072
+      },
+      "training_seconds": 0.43
+    },
+    "ridge_log_alpha_100": {
+      "metrics": {
+        "mae": 82928.04271975112,
+        "rmse": 143533.05727170355,
+        "r2": 0.8297041219136838,
+        "mape_percent": 15.790304888427698,
+        "within_10_percent": 0.4456086286594761,
+        "within_20_percent": 0.7386748844375963
+      },
+      "training_seconds": 0.418
+    }
+  },
+  "selected_model": "ridge_log_alpha_0_1",
+  "validation_mae_improvement_vs_dummy_percent": 67.8584732208237,
+  "test_result": {
+    "selected_model_metrics": {
+      "mae": 75591.3727047176,
+      "rmse": 130058.85017055544,
+      "r2": 0.8798754477383294,
+      "mape_percent": 13.815761346028657,
+      "within_10_percent": 0.5020155038759689,
+      "within_20_percent": 0.786046511627907
+    },
+    "dummy_metrics": {
+      "mae": 225007.28310077518,
+      "rmse": 390097.3905432263,
+      "r2": -0.08068233394652191,
+      "mape_percent": 40.44287682439006,
+      "within_10_percent": 0.16031007751937984,
+      "within_20_percent": 0.32155038759689925
+    },
+    "mae_improvement_vs_dummy_percent": 66.40492180385908,
+    "price_band_analysis": [
+      {
+        "price_band": "low",
+        "rows": 711,
+        "mae": 41701.390020501145
+      },
+      {
+        "price_band": "mid_low",
+        "rows": 806,
+        "mae": 48234.84405195306
+      },
+      {
+        "price_band": "mid_high",
+        "rows": 856,
+        "mae": 61230.07616742315
+      },
+      {
+        "price_band": "high",
+        "rows": 852,
+        "mae": 144181.05535557467
+      }
+    ]
+  },
+  "readiness_gate": {
+    "rule": "Selected model improves MAE over median by at least 20% on validation and test.",
+    "passed": true
+  },
+  "raw_feature_permutation_importance": [
+    {
+      "feature": "zipcode",
+      "mae_increase_mean": 90363.90022502735,
+      "mae_increase_std": 3781.3934432117308
+    },
+    {
+      "feature": "sqft_living",
+      "mae_increase_mean": 31146.752584881036,
+      "mae_increase_std": 791.4600956795389
+    },
+    {
+      "feature": "grade",
+      "mae_increase_mean": 25632.073878479758,
+      "mae_increase_std": 1153.785756421262
+    },
+    {
+      "feature": "lat",
+      "mae_increase_mean": 16201.468151896706,
+      "mae_increase_std": 573.1307604418676
+    },
+    {
+      "feature": "long",
+      "mae_increase_mean": 10969.809632733324,
+      "mae_increase_std": 473.58972190986754
+    },
+    {
+      "feature": "sqft_lot",
+      "mae_increase_mean": 10837.101215468248,
+      "mae_increase_std": 1629.8188247071355
+    },
+    {
+      "feature": "sqft_above",
+      "mae_increase_mean": 9813.28197242227,
+      "mae_increase_std": 552.5450686178815
+    },
+    {
+      "feature": "yr_built",
+      "mae_increase_mean": 5523.193504322834,
+      "mae_increase_std": 139.96774829523463
+    },
+    {
+      "feature": "view",
+      "mae_increase_mean": 5485.21423139753,
+      "mae_increase_std": 266.0581095664122
+    },
+    {
+      "feature": "sqft_living15",
+      "mae_increase_mean": 5346.147554630336,
+      "mae_increase_std": 850.0957971619221
+    },
+    {
+      "feature": "condition",
+      "mae_increase_mean": 3735.764388908147,
+      "mae_increase_std": 583.6092819766923
+    },
+    {
+      "feature": "waterfront",
+      "mae_increase_mean": 1523.721243333479,
+      "mae_increase_std": 272.0388934387992
+    },
+    {
+      "feature": "date",
+      "mae_increase_mean": 767.265788773167,
+      "mae_increase_std": 95.68550202527415
+    },
+    {
+      "feature": "yr_renovated",
+      "mae_increase_mean": 760.5741496863096,
+      "mae_increase_std": 273.88116708741023
+    },
+    {
+      "feature": "floors",
+      "mae_increase_mean": 681.4239196084915,
+      "mae_increase_std": 196.87175712717254
+    },
+    {
+      "feature": "bathrooms",
+      "mae_increase_mean": 648.9073329555686,
+      "mae_increase_std": 310.0615667605423
+    },
+    {
+      "feature": "sqft_lot15",
+      "mae_increase_mean": 638.258389444949,
+      "mae_increase_std": 103.77397804433024
+    },
+    {
+      "feature": "bedrooms",
+      "mae_increase_mean": 417.31305143534945,
+      "mae_increase_std": 141.69412250729192
+    },
+    {
+      "feature": "sqft_basement",
+      "mae_increase_mean": 183.53337421330798,
+      "mae_increase_std": 285.7748279784116
+    },
+    {
+      "feature": "id",
+      "mae_increase_mean": 0.0,
+      "mae_increase_std": 0.0
+    }
+  ],
+  "environment": {
+    "numpy": "2.3.5",
+    "pandas": "3.0.6"
+  }
+}

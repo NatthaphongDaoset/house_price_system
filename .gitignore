@@ -53,6 +53,8 @@ mlflow.db
 logs/
 tmp/
 temp/
+.pytest_cache/
+.ruff_cache/
 
 # OS generated files
 .DS_Store
@@ -63,10 +65,13 @@ data/raw/*.csv
 data/processed/*.csv
 data/drift/*.csv
 data/corrupted/*.csv
+data/rejected/*.csv
 !data/raw/.gitkeep
 !data/raw/kc_house_data.csv
 !data/processed/.gitkeep
 !data/corrupted/.gitkeep
 !data/drift/.gitkeep
+!data/rejected/.gitkeep
 artifacts/*.joblib
+artifacts/data_validation_report.json
 !artifacts/serving_model/MANIFEST.json

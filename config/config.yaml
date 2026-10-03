@@ -1,7 +1,16 @@
 data:
-  raw_path: data/raw/house_prices.csv
-  processed_path: data/processed/house_prices_processed.csv
-  target: SalePrice
+  raw_path: data/raw/kc_house_data.csv
+  processed_dir: data/processed
+  train_path: data/processed/train.csv
+  validation_path: data/processed/validation.csv
+  test_path: data/processed/test.csv
+  rejected_path: data/rejected/rejected_rows.csv
+  manifest_path: data/processed/split_manifest.json
+  target: price
+  identifier_columns:
+    - id
+  categorical_columns:
+    - zipcode
 
 model:
   path: artifacts/serving_model/house_price_model.joblib
