@@ -1,16 +1,22 @@
-"""Prepare the raw-data location.
+"""Prepare the data directory for the team's real dataset."""
 
-The real dataset will be supplied by the team. This script intentionally does
-not download an external dataset. It only checks whether the expected file
-exists, so CI can be used before the real data is added.
-"""
 from pathlib import Path
-import sys
+
 
 DATA_PATH = Path("data/raw/house_prices.csv")
 
-if DATA_PATH.exists():
-    print(f"Dataset found: {DATA_PATH}")
-else:
-    print(f"Dataset is not available yet: {DATA_PATH}")
-    print("Waiting for the team's real house-price dataset.")
+
+def main():
+    DATA_PATH.parent.mkdir(parents=True, exist_ok=True)
+
+    if DATA_PATH.exists():
+        print(f"Dataset already exists: {DATA_PATH}")
+    else:
+        print(
+            "No dataset downloaded automatically. "
+            "Place the team's house_prices.csv in data/raw/."
+        )
+
+
+if __name__ == "__main__":
+    main()

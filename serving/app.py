@@ -1,13 +1,18 @@
 """FastAPI service for house-price prediction."""
+
 from pathlib import Path
 from typing import Any
+
 import pandas as pd
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+
 from src.model import load_model
 
+
 MODEL_PATH = Path("artifacts/serving_model/house_price_model.joblib")
-app = FastAPI(title="House Price Prediction API", version="1.0.0")
+
+app = FastAPI(title="House Price Prediction API")
 
 
 class PredictionRequest(BaseModel):
@@ -15,16 +20,17 @@ class PredictionRequest(BaseModel):
 
 
 @app.get("/health")
-def health() -> dict[str, str]:
+def health():
     return {"status": "ok"}
 
 
 @app.post("/predict")
-def predict(request: PredictionRequest) -> dict[str, float]:
+def predict(request: PredictionRequest):
     if not MODEL_PATH.exists():
-        raise HTTPException(status_code=503, detail="Model is not trained yet")
+        raise HTTPException(status_code=503, detail="Model is not available.")
 
-    model = load_model(str(MODEL_PATH))
-    input_data = pd.DataFrame([request.features])
-    prediction = float(model.predict(input_data)[0])
-    return {"predicted_price": prediction}
+    model = load_model(MODEL_PATH)
+    data = pd.DataFrame([request.features])
+    prediction = model.predict(data)[0]
+
+    return {"predicted_price": float(prediction)}
