@@ -32,7 +32,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Code quality (ruff)
-        run: ruff check scripts/ tests/
+        run: ruff check scripts/ tests/ src/ serving/
 
   # ---------- ด้านที่ 2 และ 3: ความถูกต้องของข้อมูล และเกณฑ์คุณภาพของโมเดล ----------
   test:
