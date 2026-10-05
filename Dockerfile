@@ -12,4 +12,4 @@ COPY artifacts/ ./artifacts/
 
 EXPOSE 8000
 
-CMD ["python", "-m", "serving.app"]
+CMD ["uvicorn", "serving.app:app", "--host", "0.0.0.0", "--port", "8000"]
